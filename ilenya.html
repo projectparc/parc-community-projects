@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ilenya Community Borehole — Solar Water Pump &amp; Distribution System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1E2624;
+  --ink-soft: #4B5450;
+  --muted: #746D5E;
+  --bg: #EEEBDE;
+  --surface: #FBF9F2;
+  --surface-2: #F2EEE1;
+  --border: rgba(30,38,36,0.12);
+  --accent: #14646C;
+  --accent-ink: #0C4247;
+  --accent-soft: #DCEAE9;
+  --amber: #C4791E;
+  --amber-soft: #F3E4CB;
+  --live: #3F7A4D;
+  --live-soft: #DEEBDE;
+  --progress: #B4791A;
+  --progress-soft: #F2E4C8;
+  --proposed: #6B6247;
+  --proposed-soft: #E9E4D2;
+  --shadow: 0 1px 2px rgba(20,25,23,0.06), 0 8px 24px -12px rgba(20,25,23,0.18);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #ECE8DB;
+    --ink-soft: #C7C2B0;
+    --muted: #9C9484;
+    --bg: #161C1A;
+    --surface: #1D2422;
+    --surface-2: #232B28;
+    --border: rgba(236,232,219,0.12);
+    --accent: #5DBAC0;
+    --accent-ink: #BFE6E6;
+    --accent-soft: #223634;
+    --amber: #E5A94C;
+    --amber-soft: #3A2E1B;
+    --live: #7FBE8B;
+    --live-soft: #223425;
+    --progress: #E0AA57;
+    --progress-soft: #3A2E19;
+    --proposed: #B9AF93;
+    --proposed-soft: #2C2A20;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #ECE8DB;
+  --ink-soft: #C7C2B0;
+  --muted: #9C9484;
+  --bg: #161C1A;
+  --surface: #1D2422;
+  --surface-2: #232B28;
+  --border: rgba(236,232,219,0.12);
+  --accent: #5DBAC0;
+  --accent-ink: #BFE6E6;
+  --accent-soft: #223634;
+  --amber: #E5A94C;
+  --amber-soft: #3A2E1B;
+  --live: #7FBE8B;
+  --live-soft: #223425;
+  --progress: #E0AA57;
+  --progress-soft: #3A2E19;
+  --proposed: #B9AF93;
+  --proposed-soft: #2C2A20;
+  --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { text-wrap: balance; }
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 20px 64px; }
+.eyebrow {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.hero {
+  position: relative;
+  height: min(52vh, 440px);
+  min-height: 280px;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--accent-ink), var(--ink) 120%);
+}
+.hero img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.88;
+}
+.hero.regional img { opacity: 0.5; filter: saturate(0.85); }
+.hero::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(10,16,15,0.15) 0%, rgba(10,16,15,0.15) 40%, rgba(10,16,15,0.86) 100%);
+}
+.hero-content {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 28px 20px 26px;
+  max-width: 920px; margin: 0 auto;
+  color: #F4F1E6;
+}
+.hero-eyebrow {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(244,241,230,0.75);
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px 4px 8px;
+  border-radius: 999px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11.5px; letter-spacing: 0.04em; font-weight: 500;
+  background: rgba(244,241,230,0.14);
+  border: 1px solid rgba(244,241,230,0.28);
+}
+.pill .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.pill.st-live { color: #9CE0A8; }
+.pill.st-progress { color: #F0C878; }
+.pill.st-proposed { color: #D8D2BC; }
+h1.title {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(28px, 4.4vw, 42px);
+  line-height: 1.08;
+  margin: 0 0 8px;
+  max-width: 15ch;
+}
+.hero-meta {
+  font-size: 15px;
+  color: rgba(244,241,230,0.88);
+  display: flex; gap: 6px; flex-wrap: wrap; align-items: baseline;
+}
+.hero-meta .sep { opacity: 0.5; }
+.regional-note {
+  position: absolute; right: 20px; bottom: 26px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px; color: rgba(244,241,230,0.6);
+  max-width: 220px; text-align: right; display: none;
+}
+.hero.regional .regional-note { display: block; }
+
+.statbar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: -34px 0 36px;
+  box-shadow: var(--shadow);
+  position: relative;
+  z-index: 2;
+}
+.stat {
+  background: var(--surface);
+  padding: 16px 18px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.stat-v {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  font-size: 17px; font-weight: 500; color: var(--ink);
+  line-height: 1.25;
+}
+.stat-l {
+  font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted);
+}
+
+.lede {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 400; font-style: italic;
+  font-size: clamp(19px, 2.4vw, 23px);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0 0 40px;
+  max-width: 62ch;
+}
+.challenge {
+  background: var(--surface-2);
+  border-left: 3px solid var(--amber);
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin: 0 0 40px;
+}
+.challenge .eyebrow { color: var(--amber); margin-bottom: 6px; }
+.challenge p { margin: 0; color: var(--ink-soft); }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+@media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 22px 20px;
+  box-shadow: var(--shadow);
+}
+.card h2 {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.sec-note { margin: -6px 0 14px; font-size: 13.5px; color: var(--muted); }
+.spec { margin: 0; display: flex; flex-direction: column; gap: 11px; }
+.spec-row { display: grid; grid-template-columns: 40% 1fr; gap: 10px; align-items: baseline; }
+.spec-row dt { font-size: 12.5px; color: var(--muted); }
+.spec-row dd { margin: 0; font-size: 14.5px; color: var(--ink); white-space: pre-line; }
+
+.people { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 720px) { .people { grid-template-columns: 1fr; } }
+
+footer {
+  margin-top: 44px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-mark {
+  width: 28px; height: 28px; border-radius: 7px;
+  background: linear-gradient(140deg, var(--accent), var(--amber));
+  flex: none;
+}
+.brand-name { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 15px; }
+.brand-sub { font-size: 11.5px; color: var(--muted); font-family: "IBM Plex Mono", ui-monospace, monospace; }
+footer .updated { font-size: 11.5px; color: var(--muted); font-family: "IBM Plex Mono", ui-monospace, monospace; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <img src="ilenya.jpg" alt="Community consultation at the Ilenya project site, March 2026">
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span>Access to Water</span>
+      <span class="pill st-progress"><span class="dot"></span>Provisional Acceptance</span>
+    </div>
+    <h1 class="title">Ilenya Community Borehole — Solar Water Pump &amp; Distribution System</h1>
+    <div class="hero-meta">
+      <strong>Ilenya Community</strong><span class="sep">·</span><span>Ilenya, Rumuruti area, Laikipia North County, Kenya</span>
+    </div>
+  </div>
+  <div class="regional-note">Regional photo, illustrative — site-specific photography not yet available</div>
+</div>
+
+<div class="wrap">
+  <div class="statbar">
+    <div class="stat"><span class="stat-v">~4.13 kWp solar (7 panels); pump capped at 6 m³/hr</span><span class="stat-l">Installed capacity</span></div><div class="stat"><span class="stat-v">36 m³ (design cap)</span><span class="stat-l">Daily abstraction</span></div><div class="stat"><span class="stat-v">KES 3,351,141 incl. VAT</span><span class="stat-l">Contract price</span></div><div class="stat"><span class="stat-v">Ilenya community — approx. 1,500 people and 8,000 livestock</span><span class="stat-l">Areas served</span></div>
+  </div>
+
+  <p class="lede">A turnkey solar water system replaced Ilenya&#x27;s unreliable, contaminated borehole with a solar pump, tank platform, livestock trough and tokenised water kiosk, now serving roughly 1,500 people and 8,000 livestock in Laikipia North.</p>
+
+  <div class="challenge">
+    <div class="eyebrow">The challenge</div>
+    <p>An existing but poorly functioning, uncased borehole with unsafe water quality (E. coli/coliform) left domestic and livestock water access unreliable and exposed to vandalism, theft and wildlife interference.</p>
+  </div>
+
+  <div class="grid">
+    
+    <section class="card">
+      <h2>Community</h2>
+      
+      <dl class="spec"><div class="spec-row"><dt>Community</dt><dd>Ilenya Community</dd></div><div class="spec-row"><dt>Economic activity</dt><dd>Pastoralism / livestock keeping</dd></div><div class="spec-row"><dt>Contact person</dt><dd>Guy Lawrence, Africa Director, Project PARC</dd></div><div class="spec-row"><dt>Tel</dt><dd>0716 512 686</dd></div></dl>
+    </section>
+    
+    <section class="card">
+      <h2>Project details</h2>
+      
+      <dl class="spec"><div class="spec-row"><dt>Installed capacity</dt><dd>~4.13 kWp solar (7 panels); pump capped at 6 m³/hr</dd></div><div class="spec-row"><dt>Status / commissioned</dt><dd>Provisional acceptance passed; in 6-month defects liability period</dd></div><div class="spec-row"><dt>Areas served</dt><dd>Ilenya community — approx. 1,500 people and 8,000 livestock</dd></div><div class="spec-row"><dt>Equipment used</dt><dd>Submersible solar pump; 4.13kWp PV array; 10,000L tank on RC platform; livestock trough; tokenised ATM water kiosk (Maji Milele); remote monitoring &amp; CCTV; security fence</dd></div><div class="spec-row"><dt>Design daily abstraction</dt><dd>36 m³ (design cap)</dd></div><div class="spec-row"><dt>Contract price</dt><dd>KES 3,351,141 incl. VAT</dd></div></dl>
+    </section>
+    <div class="people">
+      
+    <section class="card">
+      <h2>Partner</h2>
+      
+      <dl class="spec"><div class="spec-row"><dt>Name</dt><dd>Maji Milele</dd></div><div class="spec-row"><dt>Sector</dt><dd>Water-ATM / prepaid token technology</dd></div></dl>
+    </section>
+      
+    <section class="card">
+      <h2>EPC</h2>
+      
+      <dl class="spec"><div class="spec-row"><dt>Contractor</dt><dd>Equinox East Africa Energy Limited</dd></div><div class="spec-row"><dt>Contract signed</dt><dd>11 Mar 2026 (draft); signed ~25 Mar 2026</dd></div><div class="spec-row"><dt>Outstanding milestone</dt><dd>Defects liability period (6 months from provisional acceptance) — rectify any snagging, issue Final Acceptance Certificate</dd></div></dl>
+    </section>
+      
+    <section class="card">
+      <h2>O&amp;M</h2>
+      
+      <dl class="spec"><div class="spec-row"><dt>Contractor</dt><dd>Ilenya Water Committee (self-managed, PARC field support)</dd></div></dl>
+    </section>
+    </div>
+  </div>
+
+  <footer>
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div>
+        <div class="brand-name">Project PARC</div>
+        <div class="brand-sub">Community Project One-Pager</div>
+      </div>
+    </div>
+    <div class="updated">Community consultation at the Ilenya project site, March 2026</div>
+  </footer>
+</div>
+</body>
+</html>

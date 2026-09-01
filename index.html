@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Project PARC Community Projects</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Digital summaries for every Project PARC community project — water, food security, energy and livelihoods work across Amboseli.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1E2624;
+  --ink-soft: #4B5450;
+  --muted: #746D5E;
+  --bg: #EEEBDE;
+  --surface: #FBF9F2;
+  --surface-2: #F2EEE1;
+  --border: rgba(30,38,36,0.12);
+  --accent: #14646C;
+  --accent-ink: #0C4247;
+  --accent-soft: #DCEAE9;
+  --amber: #C4791E;
+  --amber-soft: #F3E4CB;
+  --live: #3F7A4D;
+  --live-soft: #DEEBDE;
+  --progress: #B4791A;
+  --progress-soft: #F2E4C8;
+  --proposed: #6B6247;
+  --proposed-soft: #E9E4D2;
+  --shadow: 0 1px 2px rgba(20,25,23,0.06), 0 8px 24px -12px rgba(20,25,23,0.18);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #ECE8DB;
+    --ink-soft: #C7C2B0;
+    --muted: #9C9484;
+    --bg: #161C1A;
+    --surface: #1D2422;
+    --surface-2: #232B28;
+    --border: rgba(236,232,219,0.12);
+    --accent: #5DBAC0;
+    --accent-ink: #BFE6E6;
+    --accent-soft: #223634;
+    --amber: #E5A94C;
+    --amber-soft: #3A2E1B;
+    --live: #7FBE8B;
+    --live-soft: #223425;
+    --progress: #E0AA57;
+    --progress-soft: #3A2E19;
+    --proposed: #B9AF93;
+    --proposed-soft: #2C2A20;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #ECE8DB;
+  --ink-soft: #C7C2B0;
+  --muted: #9C9484;
+  --bg: #161C1A;
+  --surface: #1D2422;
+  --surface-2: #232B28;
+  --border: rgba(236,232,219,0.12);
+  --accent: #5DBAC0;
+  --accent-ink: #BFE6E6;
+  --accent-soft: #223634;
+  --amber: #E5A94C;
+  --amber-soft: #3A2E1B;
+  --live: #7FBE8B;
+  --live-soft: #223425;
+  --progress: #E0AA57;
+  --progress-soft: #3A2E19;
+  --proposed: #B9AF93;
+  --proposed-soft: #2C2A20;
+  --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { text-wrap: balance; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px 72px; }
+.masthead {
+  padding: 56px 20px 40px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--surface-2), var(--bg));
+}
+.masthead-inner { max-width: 1080px; margin: 0 auto; }
+.eyebrow {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.brand-mark { width: 20px; height: 20px; border-radius: 6px; background: linear-gradient(140deg, var(--accent), var(--amber)); flex: none; }
+h1.hd {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.08;
+  margin: 0 0 14px;
+  max-width: 18ch;
+}
+.lede {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 400; font-style: italic;
+  font-size: clamp(18px, 2.1vw, 21px);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 60ch;
+}
+.count-row {
+  margin-top: 26px;
+  display: flex; gap: 28px; flex-wrap: wrap;
+}
+.count { display: flex; flex-direction: column; gap: 2px; }
+.count-v { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 22px; font-weight: 500; color: var(--ink); font-variant-numeric: tabular-nums; }
+.count-l { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+
+.grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+.card {
+  display: flex; flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(20,25,23,0.08), 0 14px 30px -14px rgba(20,25,23,0.28); }
+.card-img { position: relative; height: 168px; overflow: hidden; background: var(--surface-2); }
+.card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card-body { padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 8px; }
+.card-eyebrow {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--muted);
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 8px 3px 7px;
+  border-radius: 999px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 10.5px; letter-spacing: 0.03em; font-weight: 500;
+}
+.pill .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+.pill.st-live { color: var(--live); background: var(--live-soft); }
+.pill.st-progress { color: var(--progress); background: var(--progress-soft); }
+.pill.st-proposed { color: var(--proposed); background: var(--proposed-soft); }
+.card h3 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.25;
+  margin: 0;
+}
+.card-loc { margin: 0; font-size: 13px; color: var(--muted); }
+
+footer {
+  margin-top: 56px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-name { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 15px; }
+.brand-sub { font-size: 11.5px; color: var(--muted); font-family: "IBM Plex Mono", ui-monospace, monospace; }
+footer .updated { font-size: 11.5px; color: var(--muted); font-family: "IBM Plex Mono", ui-monospace, monospace; }
+</style>
+</head>
+<body>
+<div class="masthead">
+  <div class="masthead-inner">
+    <div class="eyebrow"><span class="brand-mark"></span>Project PARC</div>
+    <h1 class="hd">Community Project Digital Summaries</h1>
+    <p class="lede">One page per project — water access, food security, livelihoods and energy work across the Amboseli ecosystem. Scan the QR code on-site or open a project below.</p>
+    <div class="count-row">
+      <div class="count"><span class="count-v">15</span><span class="count-l">Community Projects</span></div>
+      <div class="count"><span class="count-v">7</span><span class="count-l">Live / Commissioned</span></div>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="grid">
+    
+      <a class="card" href="apiary.html">
+        <div class="card-img">
+          <img src="apiary.jpg" alt="CMEC apiary site-selection training, September 2025" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-eyebrow">
+            <span>Livelihoods</span>
+            <span class="pill st-progress"><span class="dot"></span>First Site Complete</span>
+          </div>
+          <h3>Chui Mama Apiary — Beekeeping Enterprise</h3>
+          <p class="card-loc">Chui Mama Women&#x27;s Group (CMWG) / Chui Mama Executive Committee · Chui Mama community, Ewaso, Mukogodo area, Laikipia North, Kenya</p>
+        </div>
+      </a>
+      <a class="card" href="ewaso-food.html">
+        <div class="card-img">
+          <img src="ewaso-food.jpg" alt="Chui Mama Permaculture Farm, March 2026" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-eyebrow">
+            <span>Access to Food</span>
+            <span class="pill st-live"><span class="dot"></span>Active</span>
+          </div>
+          <h3>Chui Mama Permaculture Project</h3>
+          <p class="card-loc">Ewaso Community · Ewaso, Laikipia County, Kenya</p>
+        </div>
+      </a>
+      <a class="card" href="ewaso-enhancement.html">
+        <div class="card-img">
+          <img src="ewaso-enhancement.jpg" alt="Pipeline trenching for the Ewaso network extension, April 2026" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-eyebrow">
+            <span>Access to Water</span>
+            <span class="pill st-progress"><span class="dot"></span>In Progress</span>
+          </div>
+          <h3>Ewaso Borehole Solarisation Enhancement</h3>
+          <p class="card-loc">Ewaso Community · Ewaso, Laikipia County, Kenya (adjacent to Loisaba Conservancy)</p>
+        </div>
+      </a>
+      <a class="card" href="ilenya.html">
+        <div class="card-img">
+          <img src="ilenya.jpg" alt="Community consultation at the Ilenya project site, March 2026" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-eyebrow">
+            <span>Access to Water</span>
+            <span class="pill st-progress"><span class="dot"></span>Provisional Acceptance</span>
+          </div>
+          <h3>Ilenya Community Borehole — Solar Water Pump &amp; Distribution System</h3>
+          <p class="card-loc">Ilenya Community · Ilenya, Rumuruti area, Laikipia North County, Kenya</p>
+        </div>
+      </a>
+      <a class="card" href="lekasuyian.html">
+        <div class="card-img">
+          <img src="lekasuyian.jpg" alt="Community members at the Lekasuiyian project site, April 2026" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-eyebrow">
+            <span>Access to Water</span>
+            <span class="pill st-progress"><span class="dot"></span>Final Commissioning</span>
+          </div>
+          <h3>Lekasuiyian Community Borehole Solarisation</h3>
+          <p class="card-loc">Lekasuiyian Community (Oglulului Group Ranch) · Lekasuiyian, Oglulului Group Ranch, Laikipia North, Kenya</p>
+        </div>
+      </a>
+      <a class="card" href="loisiwa.html">
+        <div class="card-img">
+          <img src="loisiwa.jpg" alt="Community pre-engagement meeting at Loisiwa, November 2025" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-eyebrow">
+            <span>Access to Water</span>
+            <span class="pill st-proposed"><span class="dot"></span>Proposed</span>
+          </div>
+          <h3>Proposed Loisiwa Water Project</h3>
+          <p class="card-loc">Loisiwa area, Salama Location · Loisiwa area, Salama Location, Laikipia County, Kenya</p>
+        </div>
+      </a>
+      <a class="card" href="chui-mama.html">
+        <div class="card-img">
+          <img src="chui-mama.jpg" alt="Chui Mama borehole after solarisation, November 2025" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-eyebrow">
+            <span>Access to Water</span>
+            <span class="pill st-live"><span class="dot"></span>Commissioned</span>
+          </div>
+          <h3>Rehabilitation &amp; Solarisation of Chui Mama Borehole</h3>
+          <p class="card-loc">Chui Mama Permaculture Garden / Ewaso Community · Chui Mama Borehole, Ewaso, Loisaba Conservancy, Laikipia County, Kenya</p>
+        </div>
+      </a>
+      <a class="card" href="amboseli-pipeline.html">
+        <div class="card-img">
+          <img src="amboseli-pipeline.jpg" alt="Regional water infrastructure in the Amboseli-Kajiado landscape (illustrative)" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-eyebrow">
+            <span>Access to Water</span>
+            <span class="pill st-proposed"><span class="dot"></span>Proposed</span>
+          </div>
+          <h3>Rehabilitation of the Olgulului/Ololarashi Water Pipeline</h3>
+          <p class="card-loc">Olgulului/Ololarashi Group Ranch (OOGR) · North of Amboseli National Park, Loitokitok Sub-County, Kajiado County, Kenya</p>
+        </div>
+      </a>
+      <a class="card" href="esiteti.html">
+        <div class="card-img">
+          <img src="esiteti.jpg" alt="Esiteti water committee meeting, November 2025" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-eyebrow">
+            <span>Access to Water</span>
+            <span class="pill st-live"><span class="dot"></span>Commissioned</span>
+          </div>
+          <h3>Solarisation of Esiteti Community Borehole</h3>
+          <p class="card-loc">Esiteti Community · Amboseli, Kajiado County, Kenya</p>
+        </div>
+      </a>
+      <a class="card" href="ewaso-water.html">
+        <div class="card-img">
+          <img src="ewaso-water.jpg" alt="Aerial view of the commissioned Ewaso borehole site, October 2023" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-eyebrow">
+            <span>Access to Water</span>
+            <span class="pill st-live"><span class="dot"></span>Commissioned</span>
+          </div>
+          <h3>Solarisation of Ewaso Community Borehole</h3>
+          <p class="card-loc">Ewaso Community · Ewaso, Laikipia County, Kenya</p>
+        </div>
+      </a>
+      <a class="card" href="kijito.html">
+        <div class="card-img">
+          <img src="kijito.jpg" alt="Site visit at Kijito borehole, January 2026" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-eyebrow">
+            <span>Access to Water</span>
+            <span class="pill st-progress"><span class="dot"></span>Provisional Acceptance</span>
+          </div>
+          <h3>Solarisation of Kijito Community Borehole</h3>
+          <p class="card-loc">Kijito Community (Oglulului Group Ranch) · Kijito, Laikipia North, Kenya</p>
+        </div>
+      </a>
+      <a class="card" href="lokusero.html">
+        <div class="card-img">
+          <img src="lokusero.jpg" alt="Impact metrics data collection at Lokusero, February 2025" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-eyebrow">
+            <span>Access to Water</span>
+            <span class="pill st-live"><span class="dot"></span>Commissioned</span>
+          </div>
+          <h3>Solarisation of Lokusero Community Borehole</h3>
+          <p class="card-loc">Lokusero Community · Mukogodo Forest, Laikipia County, Kenya</p>
+        </div>
+      </a>
+      <a class="card" href="murua.html">
+        <div class="card-img">
+          <img src="murua.jpg" alt="Impact metrics data collection at Murua, February 2025" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-eyebrow">
+            <span>Access to Water</span>
+            <span class="pill st-live"><span class="dot"></span>Commissioned</span>
+          </div>
+          <h3>Solarisation of Murua Community Spring Water</h3>
+          <p class="card-loc">Murua Community · Murua, Laikipia County, Kenya</p>
+        </div>
+      </a>
+      <a class="card" href="sukutan.html">
+        <div class="card-img">
+          <img src="sukutan.jpg" alt="Community members collecting water at Sukutan, February 2026" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-eyebrow">
+            <span>Access to Water</span>
+            <span class="pill st-live"><span class="dot"></span>Commissioned</span>
+          </div>
+          <h3>Solarisation of Sukutan Community Borehole</h3>
+          <p class="card-loc">Sukutan Community · Sukutan, Laikipia North, Kenya</p>
+        </div>
+      </a>
+      <a class="card" href="withare.html">
+        <div class="card-img">
+          <img src="withare.jpg" alt="Withare community borehole site, March 2026" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-eyebrow">
+            <span>Access to Water</span>
+            <span class="pill st-progress"><span class="dot"></span>Commissioning</span>
+          </div>
+          <h3>Solarisation of Withare Community Borehole</h3>
+          <p class="card-loc">Withare Community · Laikipia County, Kenya</p>
+        </div>
+      </a>
+  </div>
+  <footer>
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div>
+        <div class="brand-name">Project PARC</div>
+        <div class="brand-sub">Community Project One-Pagers</div>
+      </div>
+    </div>
+    <div class="updated">Updated September 2026</div>
+  </footer>
+</div>
+</body>
+</html>
