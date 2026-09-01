@@ -246,7 +246,7 @@ footer {
   border-top: 1px solid var(--border);
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
 }
-.brand { display: flex; align-items: center; gap: 10px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
 .brand-mark {
   width: 28px; height: 28px; border-radius: 7px;
   background: linear-gradient(140deg, var(--accent), var(--amber));
@@ -254,6 +254,8 @@ footer {
 }
 .brand-name { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 15px; }
 .brand-sub { font-size: 11.5px; color: var(--muted); font-family: "IBM Plex Mono", ui-monospace, monospace; }
+.brand:hover .brand-name { color: var(--accent); }
+.brand:hover .brand-sub { color: var(--accent); }
 footer .updated { font-size: 11.5px; color: var(--muted); font-family: "IBM Plex Mono", ui-monospace, monospace; }
 </style>
 </head>
@@ -316,13 +318,13 @@ footer .updated { font-size: 11.5px; color: var(--muted); font-family: "IBM Plex
   </div>
 
   <footer>
-    <div class="brand">
+    <a class="brand" href="https://www.projectparc.org/" target="_blank" rel="noopener">
       <div class="brand-mark"></div>
       <div>
         <div class="brand-name">Project PARC</div>
-        <div class="brand-sub">Community Project One-Pager</div>
+        <div class="brand-sub">projectparc.org ↗</div>
       </div>
-    </div>
+    </a>
     <div class="updated">Community members at the Lekasuiyian project site, April 2026</div>
   </footer>
 </div>
